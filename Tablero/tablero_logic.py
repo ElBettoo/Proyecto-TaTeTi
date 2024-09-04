@@ -1,29 +1,25 @@
-from tablero_printer_interfaz import TableroPrinterInterfaz
+from tablero.tablero_printer.tablero_printer_interfaz import TableroPrinterInterfaz
+from tablero.tablero_structure.tablero_structure import TableroStructure
+from tablero.objects.tablero_object import TableroObject
+from tablero.casillero import Casillero
 
-class TableroInterfaz(): # tener metodo para pedir data. no hace falta interfaz 
-    def __init__(self, tablero_printer: TableroPrinterInterfaz, cantidad_casilleros: int):
+class TableroLogica(): # tener metodo para pedir data. no hace falta interfaz 
+    def __init__(self, tablero_printer: TableroPrinterInterfaz, tablero_structure: TableroStructure): 
         self.__tablero_printer = tablero_printer
-        self.__cantidad_casilleros = cantidad_casilleros
-        self.__CASILLERO_VACIO = "_"
-        self.__casilleros_data = self.__crear_casillero_data(cantidad_casilleros)
-        
+        self.__tablero_structure = tablero_structure
 
-    def __crear_casillero_data(self, cantidad_casilleros: int):
-        casilleros_data = []
+    def imprimir(self) -> str:
+        return self.__tablero_printer.dibujar_tablero(self.__tablero_structure)
 
-        for row in range(cantidad_casilleros):
-            row_data = []
-            for column in range(cantidad_casilleros):
-                casillero = self.__CASILLERO_VACIO
-                row_data.append(casillero)
+    def change_piece(self, cords: tuple(int, int), new_object: TableroObject):
+        pos_x, pos_y = cords
+        casillero = self.casilleros_data[pos_y][pos_x]
+        casillero.change_piece(new_object)
 
-            casilleros_data.append(row_data)
+    def get_casillero_by_cords(self, cords: tuple(int, int)) -> TableroObject:
+        pos_x, pos_y = cords
+        return self.casilleros_data[pos_y][pos_x]
 
-        return casilleros_data
-
-    def imprimir(self):
-        return self.__tablero_printer.dibujar_tablero(self.__casilleros_data)
-
-    def poner_ficha(self, pos_x, pos_y, ficha):
-        self.__casilleros_data[pos_y][pos_x] = ficha
-        
+    @property
+    def casilleros_data(self):
+        return self.__tablero_structure.casilleros_data        
