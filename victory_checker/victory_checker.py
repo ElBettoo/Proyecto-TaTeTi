@@ -1,8 +1,5 @@
-class VictoryChecker():
-    def __init__(self, victory_patterns: list):
-        self.__victory_patterns = victory_patterns
+from abc import ABC, abstractmethod
 
-    def check_combinations(self, combinations):
+class VictoryChecker(ABC):
+    def check_win(self):
         pass
-
-    def get_combinations_by_last_move(self, tablero: TableroLogica, last_move)
