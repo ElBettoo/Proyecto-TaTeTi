@@ -11,12 +11,12 @@ class TableroLogica(): # tener metodo para pedir data. no hace falta interfaz
     def imprimir(self) -> str:
         return self.__tablero_printer.dibujar_tablero(self.__tablero_structure)
 
-    def change_piece(self, cords: tuple(int, int), new_object: TableroObject):
+    def change_piece(self, cords: tuple[int, int], new_object: TableroObject):
         pos_x, pos_y = cords
-        casillero = self.casilleros_data[pos_y][pos_x]
+        casillero = self.casilleros_data[pos_y-1][pos_x-1]
         casillero.change_piece(new_object)
 
-    def get_casillero_by_cords(self, cords: tuple(int, int)) -> TableroObject:
+    def get_casillero_by_cords(self, cords: tuple[int, int]) -> TableroObject:
         pos_x, pos_y = cords
         return self.casilleros_data[pos_y][pos_x]
 

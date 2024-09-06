@@ -15,6 +15,23 @@ class TestTablero(unittest.TestCase):
         self.casilleros_data = self.tablero_structure.crear_tablero()
 
 
+
+if __name__ == '__main__':
+    casillero_structure = UniformCasilleroStructure([Casillero])
+    piece_structure = UniformPieceStructure([FichaEmpty])
+    tablero_structure = TableroStructure(casillero_structure, piece_structure, (12,12))
+    tablero_printer = TableroPrinterConsola()
+
+    tablero = TableroLogica(tablero_printer, tablero_structure)
+
+    diagonal_checker = TatetiDiagonalLeftToRightChecker()
+    victory_checker = TatetiVictoryChecker([diagonal_checker], 4)
+
+    
+    
+
+
+
     def test_01_casillero_structure(self):
         
         self.assertEqual(self.casilleros_data, "")
