@@ -1,0 +1,22 @@
+from turno_manager.turno_manager import TurnoManager
+from team.teams import Team
+
+class TeamOrientedTurnoManager(TurnoManager):
+    def __init__(self, teams: list[Team]):
+        super().__init__()
+        self.__teams = teams
+        self.__team_index = 0
+        self.__player_index = 0
+
+    def get_player_turn(self):
+        return self.__teams[self.__team_index][self.__player_index]
+
+    def get_team_turn(self):
+        return self.__teams[self.__team_index]
+
+    def next_turn(self):
+        ultimo_equipo = self.__team_index == len(self.__teams) - 1
+        ultimo_jugador = self.__player_index == len(self.__teams[self.__team_index]) - 1
+
+        self.__team_index = 0 if ultimo_equipo else self.__team_index + 1
+        self.__player_index = 0 if ultimo_jugador and ultimo_equipo else self.__player_index + 1
