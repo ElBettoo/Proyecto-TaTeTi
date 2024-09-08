@@ -11,7 +11,7 @@ class TableroStructureIterator(Iterator):
         if self.__indice_y >= len(self.__casilleros_data):
             raise StopIteration
 
-        fila_entera = [casillero.piece.simbolo for casillero in self.__casilleros_data[self.__indice_y][:]]
+        fila_entera = [casillero.piece.get_simbolo() for casillero in self.__casilleros_data[self.__indice_y][:]]
         self.__indice_y += 1
         return fila_entera
         

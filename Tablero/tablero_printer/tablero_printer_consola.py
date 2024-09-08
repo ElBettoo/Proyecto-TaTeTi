@@ -28,7 +28,7 @@ class TableroPrinterConsola(TableroPrinterInterfaz):
 
             row_str =  f"{cords_str}{space}{space}{separator}{space}{casilleros_str}{space}{separator}"
 
-            column_len = int((len(row_str) - (len(space) * 2) - 4 - (cantidad_columnas - 1)) / cantidad_columnas) # -1 por el numero index.   len(row)-1 por los '+' repetidos sin contar lo del borde
+            column_len = int(((len(row_str) - (len(space) * 2) - 4 - (cantidad_columnas - 1)) / cantidad_columnas) - 10) # -4 por el numero index.   len(row)-1 por los '+' repetidos sin contar lo del borde -10 por el color format
 
             self.__add_new_str_line(row_str)
             self.__add_new_str_line(f"  {space}{space}" + "+" + (("-" * column_len) + "+") * len(row))

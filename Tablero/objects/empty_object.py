@@ -1,4 +1,4 @@
 from abc import ABC
 
-class TableroObject(ABC):
+class EmptyObject(ABC):
     pass

@@ -3,7 +3,7 @@ from team.teams import Team
 
 class TeamOrientedTurnoManager(TurnoManager):
     def __init__(self, teams: list[Team]):
-        super().__init__()
+        super().__init__(teams)
         self.__teams = teams
         self.__team_index = 0
         self.__player_index = 0
@@ -15,8 +15,15 @@ class TeamOrientedTurnoManager(TurnoManager):
         return self.__teams[self.__team_index]
 
     def next_turn(self):
-        ultimo_equipo = self.__team_index == len(self.__teams) - 1
-        ultimo_jugador = self.__player_index == len(self.__teams[self.__team_index]) - 1
+        ultimo_equipo = self.__team_index == len(self.__teams) - 1 # Condition
+        ultimo_jugador = self.__player_index == len(self.__teams[self.__team_index]) - 1 # Condition
 
-        self.__team_index = 0 if ultimo_equipo else self.__team_index + 1
-        self.__player_index = 0 if ultimo_jugador and ultimo_equipo else self.__player_index + 1
+        if ultimo_equipo:
+            self.__team_index = 0
+
+            if ultimo_jugador:
+                self.__player_index = 0
+            else:
+                self.__player_index + 1
+        else:
+            self.__team_index += 1

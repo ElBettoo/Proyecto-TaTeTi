@@ -10,4 +10,8 @@ class TatetiImplementation(ABC):
     def show_text(self):
         pass
 
+    @abstractmethod
+    def exit_game(self):
+        exit()
+
     
