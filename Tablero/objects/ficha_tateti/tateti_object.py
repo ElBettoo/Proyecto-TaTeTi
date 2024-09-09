@@ -11,6 +11,9 @@ class TatetiObject(TableroObject):
             raise ValueError("Se esta comparando un 'TatetiObject' con otro elemento desconocido")
         return self.__simbolo == otro.__simbolo
     
+    def get_name(self):
+        return self.__name
+    
     def get_simbolo(self):
         return f'\033[3{self.__color}m' + self.__simbolo + '\033[39m'
     

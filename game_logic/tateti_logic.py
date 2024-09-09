@@ -40,27 +40,33 @@ class TatetiLogic():
                     pos_x = int(self.get_player_input(f"Ingrese la fila donde quiere colocar la ficha ['{current_team._TatetiTeam__ficha.get_simbolo()}']", current_player)) - 1
                     pos_y = int(self.get_player_input(f"Ingrese la columna donde quiere colocar la ficha ['{current_team._TatetiTeam__ficha.get_simbolo()}']", current_player)) - 1 # -1 por que el indice arranca de 0
                 except ValueError:
-                    self.show_text("Las cordenadas deben ser un numero")
+                    self.show_error("Las cordenadas deben ser un numero")
                     continue
                 
                 input_data = self.cords_are_valid((pos_x, pos_y)) # Devuelve un dict con 'condition' y 'message' como keys
 
                 input_state = input_data["condition"]
                 if not input_state:
-                    self.show_text(input_data["message"])
+                    self.show_error(input_data["message"])
 
             self.__tablero.change_piece((pos_x, pos_y), current_team._TatetiTeam__ficha.create_new_ficha())
             self.__turno_manager.next_turn()
             someone_won = self.__victory_checker.check_win(self.__tablero._TableroLogica__tablero_structure, (pos_x, pos_y))
         
         self.show_text(self.__tablero.imprimir())
-        self.show_text(f"Gano el equipo '{current_team._TatetiTeam__name}'")
+        self.show_win(f"Gano el equipo '{current_team._TatetiTeam__name}'")
 
     def cords_are_valid(self, cords: tuple[int, int]) -> bool:
         return self.__tablero.cords_validator(cords)
 
     def get_player_input(self, input_message, player):
-        return self.__implementation.player_input(player._TatetiPlayer__name, input_message)
+        return self.__implementation.get_input(input_message, player._TatetiPlayer__name)
     
     def show_text(self, text):
         return self.__implementation.show_text(text)
+    
+    def show_error(self, text):
+        return self.__implementation.show_error(text)
+    
+    def show_win(self, text):
+        return self.__implementation.show_win(text)
