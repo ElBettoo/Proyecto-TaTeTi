@@ -1,4 +1,4 @@
-from game_logic.tateti_implementation.tateti_implementation import TatetiImplementation
+from game_logic.game_implementation.tateti_implementation.tateti_implementation import TatetiImplementation
 
 class ConsoleImplementation(TatetiImplementation):
     def __init__(self):

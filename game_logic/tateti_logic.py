@@ -1,21 +1,8 @@
-from game_logic.tateti_implementation.console_implementation import ConsoleImplementation
-from player.tateti_player import TatetiPlayer
-from tablero.casillero import Casillero
 from tablero.tablero_logica import TableroLogica
-from tablero.tablero_printer.tablero_printer_consola import TableroPrinterConsola
-from tablero.objects.ficha_tateti.ficha_empty import FichaEmpty
-from tablero.objects.ficha_tateti.ficha_cruz import FichaCruz
-from tablero.objects.ficha_tateti.ficha_circulo import FichaCirculo
-from tablero.tablero_structure.tablero_structure import TableroStructure
-from tablero.tablero_structure.casillero_structure.uniform_casillero_structure import UniformCasilleroStructure
-from tablero.tablero_structure.piece_structure.uniform_piece_structure import UniformPieceStructure
-
-from game_logic.tateti_implementation.tateti_implementation import TatetiImplementation
+from game_logic.game_implementation.tateti_implementation.tateti_implementation import TatetiImplementation
 from team.tateti_team import TatetiTeam
-from turno_manager.team_oriented_turno_manager import TeamOrientedTurnoManager
 from turno_manager.turno_manager import TurnoManager
 from victory_checker.tateti_victory_checker import TatetiVictoryChecker
-from victory_checker.tateti_patterns.tateti_diagonal_right_left_checker import TatetiDiagonalLeftToRightChecker
 
 
 class TatetiLogic():

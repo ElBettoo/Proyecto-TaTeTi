@@ -1,6 +1,5 @@
 from game_constructor.game_constructor import GameConstructor
-from game_logic.tateti_implementation.console_implementation import ConsoleImplementation
-from game_logic.tateti_implementation.tateti_implementation import TatetiImplementation
+from game_logic.game_implementation.tateti_implementation.console_implementation import ConsoleImplementation
 from game_logic.tateti_logic import TatetiLogic
 from player.tateti_player import TatetiPlayer
 from tablero.casillero import Casillero
@@ -21,9 +20,9 @@ from victory_checker.tateti_patterns.tateti_diagonal_right_left_checker import T
 from victory_checker.tateti_patterns.tateti_row_checker import TatetiRowChecker
 from victory_checker.tateti_victory_checker import TatetiVictoryChecker
 
-class TatetiConstructor(GameConstructor):
-    def __init__(self, game_implementation: TatetiImplementation):
-        self.__implementation = game_implementation
+class TatetiConsoleConstructor(GameConstructor):
+    def __init__(self):
+        self.__implementation = ConsoleImplementation()
         self.__teams = []
         self.__TARGET_NAME = "config"
         self.__fichas_disponibles = [FichaCruz(), FichaCirculo(), FichaCuadrado()]
@@ -54,7 +53,7 @@ class TatetiConstructor(GameConstructor):
         self.__game = TatetiLogic(tateti_implementation, tablero, victory_checker, turno_manager, teams)
 
     def get_inputs(self):
-        cantidad_equipos = self.__get_int_input("Ingrese la cantidad de equipos [min=2] [max=3]", range(2,4)) # max=3 elegido de manera arbitraria
+        cantidad_equipos = self.__get_int_input(f"Ingrese la cantidad de equipos [min=2] [max={len(self.__fichas_disponibles)}]", range(2,len(self.__fichas_disponibles)+1)) # max=3 elegido de manera arbitraria
 
         ficha_options = {number+1: f"{self.__fichas_disponibles[number].get_name().capitalize()} ['{self.__fichas_disponibles[number].get_simbolo()}']" for number in range(len(self.__fichas_disponibles))}
         for team in range(cantidad_equipos):

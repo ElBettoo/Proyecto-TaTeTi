@@ -1,15 +1,7 @@
 from abc import ABC, abstractmethod
+from game_logic.game_implementation.game_implementation import GameImplementation
 
-class TatetiImplementation(ABC):
-
-    @abstractmethod
-    def get_input(self):
-        pass
-
-    @abstractmethod
-    def show_text(self):
-        pass
-
+class TatetiImplementation(GameImplementation):
     @abstractmethod
     def show_error(self):
         pass

@@ -1,8 +1,6 @@
-from game_constructor.tateti_constructor import TatetiConstructor
-from game_logic.tateti_implementation.console_implementation import ConsoleImplementation
+from game_constructor.tateti_console_constructor import TatetiConsoleConstructor
 
-console_implementation = ConsoleImplementation()
-game_constructor = TatetiConstructor(console_implementation)
+game_constructor = TatetiConsoleConstructor()
 
 game_constructor.configure_game()
 game_constructor.start_game()
