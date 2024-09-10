@@ -1,5 +1,5 @@
 from tablero.tablero_structure.casillero_structure.casillero_structure import CasilleroStructure
-from tablero.casillero import Casillero
+from tablero.tablero_structure.casillero import Casillero
 
 class UniformCasilleroStructure(CasilleroStructure):
     def __init__(self, pattern: list[Casillero]):

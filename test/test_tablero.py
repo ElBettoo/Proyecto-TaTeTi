@@ -1,6 +1,6 @@
 import unittest
 
-from tablero.casillero import Casillero
+from tablero.tablero_structure.casillero import Casillero
 from tablero.objects.ficha_tateti.ficha_cruz import FichaCruz
 from tablero.tablero_structure.tablero_structure import TableroStructure
 from tablero.tablero_structure.casillero_structure.uniform_casillero_structure import UniformCasilleroStructure

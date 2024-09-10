@@ -1,4 +1,4 @@
-from ..casillero import Casillero
+from .casillero import Casillero
 from tablero.tablero_structure.casillero_structure.casillero_structure import CasilleroStructure
 from tablero.tablero_structure.tablero_creator.tablero_creator import TableroCreator
 from tablero.tablero_structure.piece_structure.piece_structure import PieceStructure

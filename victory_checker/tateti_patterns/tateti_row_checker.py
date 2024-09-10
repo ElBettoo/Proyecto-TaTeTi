@@ -1,5 +1,5 @@
 
-from tablero.casillero import Casillero
+from tablero.tablero_structure.casillero import Casillero
 from tablero.tablero_structure.tablero_structure import TableroStructure
 from victory_checker.tateti_patterns.tateti_victory_pattern import TatetiVictoryPattern
 

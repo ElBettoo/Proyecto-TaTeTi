@@ -2,7 +2,7 @@ from game_constructor.game_constructor import GameConstructor
 from game_logic.game_implementation.tateti_implementation.console_implementation import ConsoleImplementation
 from game_logic.tateti_logic import TatetiLogic
 from player.tateti_player import TatetiPlayer
-from tablero.casillero import Casillero
+from tablero.tablero_structure.casillero import Casillero
 from tablero.objects.ficha_tateti.ficha_circulo import FichaCirculo
 from tablero.objects.ficha_tateti.ficha_cruz import FichaCruz
 from tablero.objects.ficha_tateti.ficha_cuadrado import FichaCuadrado

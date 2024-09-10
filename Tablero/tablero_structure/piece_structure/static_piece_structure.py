@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from piece_structure import PieceStructure
+from tablero.objects.tablero_object import TableroObject
 
 class StaticPieceStructure(ABC, PieceStructure): # Significa que la estructura no se adapta a la cantidad de casilleros del tablero, como en el ajedrez que es siempre 8x8 
     def __init__(self):

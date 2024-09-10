@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from tablero.tablero_structure.tablero_structure import TableroStructure
-from tablero.casillero import Casillero
+from tablero.tablero_structure.casillero import Casillero
 
 class TatetiVictoryPattern:
     @abstractmethod

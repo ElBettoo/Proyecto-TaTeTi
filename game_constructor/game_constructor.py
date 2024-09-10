@@ -12,7 +12,3 @@ class GameConstructor(ABC):
     @abstractmethod
     def start_game(self):
         pass
-
-    @abstractmethod
-    def get_inputs(self):
-        pass

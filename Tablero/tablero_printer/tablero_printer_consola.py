@@ -1,6 +1,6 @@
 from tablero.tablero_printer.tablero_printer_interfaz import TableroPrinterInterfaz
 from tablero.tablero_structure.tablero_structure import TableroStructure
-from tablero.casillero import Casillero
+from tablero.tablero_structure.casillero import Casillero
 
 class TableroPrinterConsola(TableroPrinterInterfaz):
     def __init__(self):

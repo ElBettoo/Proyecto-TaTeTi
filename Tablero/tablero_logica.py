@@ -2,7 +2,6 @@ from tablero.tablero_printer.tablero_printer_interfaz import TableroPrinterInter
 from tablero.tablero_structure.tablero_structure import TableroStructure
 from tablero.objects.tablero_object import TableroObject
 from tablero.objects.empty_object import EmptyObject
-from tablero.casillero import Casillero
 
 class TableroLogica(): # tener metodo para pedir data. no hace falta interfaz 
     def __init__(self, tablero_printer: TableroPrinterInterfaz, tablero_structure: TableroStructure): 
