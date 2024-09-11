@@ -15,7 +15,8 @@ class TatetiLogic():
 
     def start_game(self):
         someone_won = False
-        while not someone_won:
+        empate = False
+        while not someone_won and not empate:
             self.show_text(self.__tablero.imprimir())
 
             current_player = self.__turno_manager.get_player_turn()
@@ -39,9 +40,14 @@ class TatetiLogic():
             self.__tablero.change_piece((pos_x, pos_y), current_team._TatetiTeam__ficha.create_new_ficha())
             self.__turno_manager.next_turn()
             someone_won = self.__victory_checker.check_win(self.__tablero._TableroLogica__tablero_structure, (pos_x, pos_y))
+            empate = self.__tablero.is_todo_tablero_ocupado()
         
-        self.show_text(self.__tablero.imprimir())
-        self.show_win(f"Gano el equipo '{current_team._TatetiTeam__name}'")
+        if someone_won:
+            self.show_text(self.__tablero.imprimir())
+            self.show_win(f"Gano el equipo '{current_team._TatetiTeam__name}'")
+        else:
+            self.show_text(self.__tablero.imprimir())
+            self.show_empate("Se llego a un empate")            
 
     def cords_are_valid(self, cords: tuple[int, int]) -> bool:
         return self.__tablero.cords_validator(cords)
@@ -51,6 +57,9 @@ class TatetiLogic():
     
     def show_text(self, text):
         return self.__implementation.show_text(text)
+    
+    def show_empate(self, text):
+        return self.__implementation.show_empate(text)
     
     def show_error(self, text):
         return self.__implementation.show_error(text)

@@ -4,6 +4,7 @@ class ConsoleImplementation(TatetiImplementation):
     def __init__(self):
         self.__target_color = 3
         self.__win_color = 2
+        self.__empate_color = 3
         self.__error_color = 1
 
     def get_input(self,  input_message: str, target: str):
@@ -18,6 +19,9 @@ class ConsoleImplementation(TatetiImplementation):
 
     def show_win(self, text):
         print(f'\033[3{self.__win_color}m' + text + '\033[39m' + "\n")
+
+    def show_empate(self, text):
+        print(f'\033[3{self.__empate_color}m' + text + '\033[39m' + "\n")
     
     def show_text(self, text):
         print(text + "\n")

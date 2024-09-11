@@ -20,6 +20,14 @@ class TableroLogica(): # tener metodo para pedir data. no hace falta interfaz
         pos_x, pos_y = cords
         return self.casilleros_data[pos_y][pos_x]
     
+    def is_todo_tablero_ocupado(self) -> bool:
+        casilleros_data = self.__tablero_structure.casilleros_data
+        for row in casilleros_data:
+            for casillero in row:
+                if not self.is_casillero_ocupado(casillero.get_cords()):
+                    return False
+        return True 
+    
     def is_casillero_ocupado(self, cords: tuple[int, int]):
         casillero = self.get_casillero_by_cords(cords)
         return not isinstance(casillero.piece, EmptyObject)

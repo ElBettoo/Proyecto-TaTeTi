@@ -11,6 +11,10 @@ class TatetiImplementation(GameImplementation):
         pass
 
     @abstractmethod
+    def show_empate(self):
+        pass
+
+    @abstractmethod
     def exit_game(self):
         exit()
 
