@@ -25,8 +25,8 @@ class TatetiLogic():
             input_state = False
             while not input_state:
                 try: 
-                    pos_x = int(self.get_player_input(f"Ingrese la fila donde quiere colocar la ficha ['{current_team._TatetiTeam__ficha.get_simbolo()}']", current_player)) - 1
-                    pos_y = int(self.get_player_input(f"Ingrese la columna donde quiere colocar la ficha ['{current_team._TatetiTeam__ficha.get_simbolo()}']", current_player)) - 1 # -1 por que el indice arranca de 0
+                    pos_x = int(self.get_player_input(f"Ingrese la columna donde quiere colocar la ficha ['{current_team._TatetiTeam__ficha.get_simbolo()}']", current_player)) - 1 # -1 por que el indice arranca de 0
+                    pos_y = int(self.get_player_input(f"Ingrese la fila donde quiere colocar la ficha ['{current_team._TatetiTeam__ficha.get_simbolo()}']", current_player)) - 1
                 except ValueError:
                     self.show_error("Las cordenadas deben ser un numero")
                     continue
