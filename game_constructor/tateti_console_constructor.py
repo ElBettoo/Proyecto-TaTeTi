@@ -25,7 +25,7 @@ class TatetiConsoleConstructor(GameConstructor):
         self.__implementation = ConsoleImplementation()
         self.__teams = []
         self.__TARGET_NAME = "config"
-        self.__fichas_disponibles = [FichaCruz(), FichaCirculo(), FichaCuadrado()]
+        self.__fichas_disponibles = [FichaCruz(), FichaCirculo()] # FichaCuadrado() existe pero para cumplir con el objetivo del juego la saco de la lista
         self.__game: TatetiLogic = None
 
     def start_game(self):
@@ -36,7 +36,7 @@ class TatetiConsoleConstructor(GameConstructor):
         
         casillero_structure = UniformCasilleroStructure([Casillero])
         piece_structure = UniformPieceStructure([FichaEmpty])
-        tablero_structure = TableroStructure(casillero_structure, piece_structure, (5,5))
+        tablero_structure = TableroStructure(casillero_structure, piece_structure, (3,3))
         tablero_printer = TableroPrinterConsola()
         tablero = TableroLogica(tablero_printer, tablero_structure)
 
