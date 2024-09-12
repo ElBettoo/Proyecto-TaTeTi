@@ -15,6 +15,8 @@ from tablero.tablero_structure.tablero_structure import TableroStructure
 from team.tateti_team import TatetiTeam
 from turno_manager.team_oriented_turno_manager import TeamOrientedTurnoManager
 from victory_checker.tateti_patterns.tateti_column_checker import TatetiColumnChecker
+from victory_checker.tateti_patterns.tateti_corner_adyacente_checker import TatetiCornerAdyacenteChecker
+from victory_checker.tateti_patterns.tateti_corners_checker import TatetiCornersChecker
 from victory_checker.tateti_patterns.tateti_diagonal_left_right_checker import TatetiDiagonalRightToLeftChecker
 from victory_checker.tateti_patterns.tateti_diagonal_right_left_checker import TatetiDiagonalLeftToRightChecker
 from victory_checker.tateti_patterns.tateti_row_checker import TatetiRowChecker
@@ -49,8 +51,10 @@ class TatetiConsoleConstructor(GameConstructor):
         lr_diagonal_checker = TatetiDiagonalRightToLeftChecker()
         row_checker = TatetiRowChecker()
         column_checker = TatetiColumnChecker()
+        corners_checker = TatetiCornersChecker()
+        corner_adyacentes_checker = TatetiCornerAdyacenteChecker()
    
-        victory_checker = TatetiVictoryChecker([rl_diagonal_checker, row_checker, column_checker, lr_diagonal_checker], tablero_structure.cantidad_casilleros)
+        victory_checker = TatetiVictoryChecker([rl_diagonal_checker, row_checker, column_checker, lr_diagonal_checker,corners_checker,corner_adyacentes_checker], tablero_structure.cantidad_casilleros)
 
         self.__game = TatetiLogic(tateti_implementation, tablero, victory_checker, turno_manager, teams)
 
