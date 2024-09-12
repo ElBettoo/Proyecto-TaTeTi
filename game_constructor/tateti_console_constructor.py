@@ -36,7 +36,8 @@ class TatetiConsoleConstructor(GameConstructor):
         
         casillero_structure = UniformCasilleroStructure([Casillero])
         piece_structure = UniformPieceStructure([FichaEmpty])
-        tablero_structure = TableroStructure(casillero_structure, piece_structure, (3,3))
+        tablero_tamaño = (3,5)
+        tablero_structure = TableroStructure(casillero_structure, piece_structure, tablero_tamaño)
         tablero_printer = TableroPrinterConsola()
         tablero = TableroLogica(tablero_printer, tablero_structure)
 
@@ -48,7 +49,8 @@ class TatetiConsoleConstructor(GameConstructor):
         lr_diagonal_checker = TatetiDiagonalRightToLeftChecker()
         row_checker = TatetiRowChecker()
         column_checker = TatetiColumnChecker()
-        victory_checker = TatetiVictoryChecker([rl_diagonal_checker, row_checker, column_checker, lr_diagonal_checker], 3)
+   
+        victory_checker = TatetiVictoryChecker([rl_diagonal_checker, row_checker, column_checker, lr_diagonal_checker], tablero_structure.cantidad_casilleros)
 
         self.__game = TatetiLogic(tateti_implementation, tablero, victory_checker, turno_manager, teams)
 

@@ -6,9 +6,10 @@ from victory_checker.tateti_patterns.tateti_victory_pattern import TatetiVictory
 
 class TatetiRowChecker(TatetiVictoryPattern):
     
-    def get_possible_cords_by_last_move(self, cantidad_casilleros: tuple[int, int], last_move: tuple[int, int], win_length) -> list[Casillero]:
+    def get_possible_cords_by_last_move(self, cantidad_casilleros: tuple[int, int], last_move: tuple[int, int], win_length: tuple[int, int]) -> list[Casillero]:
         move_pos_x, move_pos_y = last_move 
-        cantidad_filas, cantidad_columnas = cantidad_casilleros
+        cantidad_columnas, cantidad_filas = cantidad_casilleros
+        win_length = win_length[0] # win_length = (win_length_horizontal, win_length_vertical)
 
         distancia_minima = min(move_pos_x, win_length-1) # Valor minimo entre los casilleros para salirse del tablero en 'x' e 'y' y ademas la distancia para ganar necesaria
         start_pos_x = move_pos_x - distancia_minima
@@ -24,4 +25,4 @@ class TatetiRowChecker(TatetiVictoryPattern):
             if last_move in full_row:
                 casilleros_despues_de_last_move += 1
 
-        return full_row
+        return full_row, win_length

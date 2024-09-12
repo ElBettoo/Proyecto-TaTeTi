@@ -14,7 +14,7 @@ class TableroPrinterConsola(TableroPrinterInterfaz):
 
     def dibujar_tablero(self, tablero_structure: TableroStructure):
         
-        cantidad_filas, cantidad_columnas = tablero_structure.cantidad_casilleros
+        cantidad_columnas, cantidad_filas = tablero_structure.cantidad_casilleros
         space = "  "
         separator = "|"
         x_cords_str = " " * int( (len(space) * 2))

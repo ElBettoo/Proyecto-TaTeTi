@@ -3,7 +3,7 @@
 class TableroCreator: # Une el Casillero_Structure con Piece_Structure
 
     def crear_tablero(self, casilleros_tablero, piezas_tablero, cantidad_casilleros):
-        cantidad_filas, cantidad_columnas = cantidad_casilleros
+        cantidad_columnas, cantidad_filas = cantidad_casilleros
 
         for row_cord in range(cantidad_filas):
             row_data = []
