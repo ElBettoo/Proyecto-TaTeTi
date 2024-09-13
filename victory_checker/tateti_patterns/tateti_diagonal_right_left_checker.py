@@ -23,4 +23,4 @@ class TatetiDiagonalLeftToRightChecker(TatetiVictoryPattern):
             if last_move in full_diagonal:
                 casilleros_despues_de_last_move += 1
 
-        return full_diagonal, min(x_win_length, y_win_length) # Le paso el minimo porque para ganar se va a necesitar la distancia mas corta. Si el tablero es de 3x5, la diagonal mas larga es de 3, y si es de 5x2, la diagonal mas larga es de 2
+        return [full_diagonal], min(x_win_length, y_win_length) # Le paso el minimo porque para ganar se va a necesitar la distancia mas corta. Si el tablero es de 3x5, la diagonal mas larga es de 3, y si es de 5x2, la diagonal mas larga es de 2

@@ -23,4 +23,4 @@ class TatetiDiagonalRightToLeftChecker(TatetiVictoryPattern):
             if last_move in full_diagonal:
                 casilleros_despues_de_last_move += 1
 
-        return full_diagonal, min(x_win_length, y_win_length) 
+        return [full_diagonal], min(x_win_length, y_win_length) 

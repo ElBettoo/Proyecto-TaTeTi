@@ -22,7 +22,8 @@ class TatetiVictoryChecker(VictoryChecker):
         tablero = tablero_structure.casilleros_data
 
         for combination in possible_cords:
-            all_possible_cords = combination        
+            all_possible_cords = combination     
+            print(f"combination: {combination}   possible_cords: {possible_cords}")   
             #  Todas las posiciones/coordenadas de la diagonal - Posiciones necesarias para ganar. Si no hay suficientes posiciones en la diagonal para poder ganar, no se ejecuta, da 0
             spaces_for_win = max(0,  len(all_possible_cords) - (win_length - 1)) # len(all_possible_cords) - (win_length - 1) = Cuantas veces entre la cantidad de fichas para ganar en las cordenadas posibles
             index = 0

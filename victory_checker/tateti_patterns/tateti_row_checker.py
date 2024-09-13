@@ -25,4 +25,4 @@ class TatetiRowChecker(TatetiVictoryPattern):
             if last_move in full_row:
                 casilleros_despues_de_last_move += 1
 
-        return full_row, win_length
+        return [full_row], win_length

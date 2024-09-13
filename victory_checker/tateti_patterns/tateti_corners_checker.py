@@ -10,5 +10,5 @@ class TatetiCornersChecker(TatetiVictoryPattern):
         cantidad_columnas, cantidad_filas = cantidad_casilleros
         corners = [(0,0), (0,cantidad_filas-1), (cantidad_columnas-1, 0), (cantidad_columnas-1, cantidad_filas-1)] # Todas las cordenadas de las esquinas
 
-        return corners, len(corners)
+        return [corners], len(corners)
 
