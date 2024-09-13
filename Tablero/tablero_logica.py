@@ -1,3 +1,4 @@
+from tablero.objects.bomba_object import BombaObject
 from tablero.tablero_printer.tablero_printer_interfaz import TableroPrinterInterfaz
 from tablero.tablero_structure.tablero_structure import TableroStructure
 from tablero.objects.tablero_object import TableroObject
@@ -27,6 +28,10 @@ class TableroLogica(): # tener metodo para pedir data. no hace falta interfaz
                 if not self.is_casillero_ocupado(casillero.get_cords()):
                     return False
         return True 
+    
+    def is_casillero_bomba(self,cords: tuple[int, int]):
+        casillero = self.get_casillero_by_cords(cords)
+        return isinstance(casillero, BombaObject)
     
     def is_casillero_ocupado(self, cords: tuple[int, int]):
         casillero = self.get_casillero_by_cords(cords)

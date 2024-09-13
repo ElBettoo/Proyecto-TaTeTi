@@ -14,16 +14,14 @@ class TatetiCornerAdyacenteChecker(TatetiVictoryPattern):
         for cords in corners:
             cords_adyacentes = set() # set para que no se repitan las cordenadas
             cords_adyacentes.add(cords)
+
             for direction in [(1,0), (0,1), (-1,0), (0,-1)]: # sumo o resto 1 para encontrar los adyacentes
                 x_cord = min(cantidad_columnas-1, max(0, cords[0] + direction[0]))
                 y_cord = min(cantidad_filas-1, max(0, cords[1] + direction[1])) # el min y max es para que no se salga del tablero
-                print(x_cord, y_cord, f"= {cords}")
-                print(cords_adyacentes)
-                print("")
                 cords_adyacentes.add((x_cord,y_cord))
-            print("\n" * 3)
             possible_cords.append(list(cords_adyacentes))
 
-        print(possible_cords, len(cords_adyacentes))
+
+
         return possible_cords, len(cords_adyacentes)
 

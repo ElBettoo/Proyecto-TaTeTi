@@ -1,3 +1,4 @@
+import time
 from tablero.tablero_logica import TableroLogica
 from game_logic.game_implementation.tateti_implementation.tateti_implementation import TatetiImplementation
 from team.tateti_team import TatetiTeam
@@ -37,10 +38,22 @@ class TatetiLogic():
                 if not input_state:
                     self.show_error(input_data["message"])
 
-            self.__tablero.change_piece((pos_x, pos_y), current_team._TatetiTeam__ficha.create_new_ficha())
             self.__turno_manager.next_turn()
+
+            if self.__tablero.is_casillero_bomba((pos_x, pos_y)):
+                casillero_bomba = self.__tablero.get_casillero_by_cords((pos_x, pos_y))
+                if casillero_bomba._CasilleroBomba__active:
+                    casillero_bomba._CasilleroBomba__active = False
+                    self.show_text(f"El jugador [{current_player._TatetiPlayer__name}] puso una ficha en una bomba, !Que mala suerte!")
+                    time.sleep(.5)
+                    continue
+
+            self.__tablero.change_piece((pos_x, pos_y), current_team._TatetiTeam__ficha.create_new_ficha())
             someone_won = self.__victory_checker.check_win(self.__tablero._TableroLogica__tablero_structure, (pos_x, pos_y))
             empate = self.__tablero.is_todo_tablero_ocupado()
+
+
+            
         
         if someone_won:
             self.show_text(self.__tablero.imprimir())
